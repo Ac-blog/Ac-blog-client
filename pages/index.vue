@@ -3,8 +3,7 @@
     <div>
       <logo />
       <h1 class="title">
-        Ac-varok-client-nuxt
-        {{ tsMsg }}
+        {{ h1_title }}
       </h1>
       <h2 class="subtitle">
         Welcome to the iView + Nuxt.js template
@@ -27,13 +26,14 @@
 <script lang="ts">
 import Logo from '~/components/Logo.vue'
 import {Component, Vue} from 'vue-property-decorator'
+
 @Component({
   components: {
     Logo
   }
 })
 export default class IndexPage extends Vue {
-  tsMsg = 'My splendiferous Nuxt.js project'
+  h1_title = 'My Nuxt.js project'
 }
 </script>
 

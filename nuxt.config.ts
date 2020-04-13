@@ -50,8 +50,7 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: [
-  ],
+  modules: [],
   /*
   ** Build configuration
   */
@@ -85,7 +84,7 @@ module.exports = {
     typeCheck: {
       eslint: true
     }
-  }
+  },
 }
 
 
