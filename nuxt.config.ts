@@ -1,3 +1,9 @@
+// only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/Ac-varok-client-nuxt/'
+  }
+} : {}
 
 module.exports = {
   mode: 'universal',
@@ -35,6 +41,11 @@ module.exports = {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    ['@nuxt/typescript-build',
+    {
+      typeCheck: true,
+      ignoreNotFoundWarnings: true
+    }]
   ],
   /*
   ** Nuxt.js modules
@@ -48,21 +59,35 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend (config: any, ctx: any) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        // config.module.rules.push({
+        //   enforce: "pre",
+        //   test: /\.(ts|js|vue)$/,
+        //   loader: "eslint-loader",
+        //   exclude: /(node_modules)/
+        // })
+      }
     }
   },
   router: {
-    base: '/Ac-varok-client-nuxt/'
+    base: ''
   },
-}
-
-// only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
-  router: {
-    base: '/<repository-name>/'
+  /**
+   * routerBase
+  */
+  ...routerBase,
+  extends: [
+    '@nuxtjs/eslint-config-typescript'
+  ],
+  typescript: {
+    typeCheck: {
+      eslint: true
+    }
   }
-} : {}
-
-export default {
-  ...routerBase
 }
+
+
+
+
