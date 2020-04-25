@@ -1,8 +1,23 @@
 <template>
   <div>
+    <varok-header />
     <nuxt />
   </div>
 </template>
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
+  import VarokHeader from './VarokHeader.vue'
+
+@Component({
+  name: 'DefaultLayout',
+  components: {
+    VarokHeader
+  }
+})
+export default class DefaultLayout extends  Vue {
+
+}
+</script>
 
 <style>
 html {
