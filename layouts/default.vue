@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="varok-app" :class="currentTheme">
     <varok-header />
     <nuxt />
   </div>
@@ -15,7 +15,6 @@ import { Vue, Component } from 'vue-property-decorator'
   }
 })
 export default class DefaultLayout extends  Vue {
-
 }
 </script>
 
