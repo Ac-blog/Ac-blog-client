@@ -1,5 +1,5 @@
 <template>
-  <div class="varok-app" :class="currentTheme">
+  <div class="varok-app">
     <varok-header />
     <nuxt />
   </div>
