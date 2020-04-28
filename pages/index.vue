@@ -1,12 +1,16 @@
 <template>
-  <div class="home-page"></div>
+  <div class="home-page">
+    <article-card />
+  </div>
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator'
+import { ArticleCard } from '@/components'
 
 @Component({
   components: {
+    ArticleCard
   }
 })
 export default class IndexPage extends Vue {
