@@ -27,11 +27,13 @@
     "iview": "^3.1.5",
     "koa": "^2.6.2",
     "nuxt": "^2.0.0",
-    "vue-property-decorator": "^8.4.1"
+    "vue-property-decorator": "^8.4.2"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.5",
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
+    "less": "^3.11.1",
+    "less-loader": "^6.0.0",
     "nodemon": "^1.18.9",
     "push-dir": "^0.4.1",
     "ts-loader": "^6.2.2"
