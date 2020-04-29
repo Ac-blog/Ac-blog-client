@@ -1,7 +1,6 @@
 <template>
   <div class="article-tag" v-if="tagName" @click="handleClick">
     <div class="article-tag-content">
-      <Icon v-if="iconType" class="tag-icon" :type="iconType" />
       <span class="tag-name">{{ tagName }} <strong>[{{ articleNumebr }}]</strong> </span>
     </div>
   </div>
@@ -14,9 +13,6 @@ import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
   name: 'ArticleTag'
 })
 export default class ArticleTag extends Vue {
-  @Prop(String)
-  private iconType?: string
-
   @Prop(String)
   private tagName!: string
 
@@ -35,21 +31,17 @@ export default class ArticleTag extends Vue {
 @import '~@/styles/var.less';
 .article-tag {
   display: inline-block;
-  padding: 0 15px;
+  padding: 0 8px;
   border-radius: 4px;
   border: 1px solid @borderColorDeep;
   width: auto;
-  height: 38px;
-  line-height: 38px;
+  height: 34px;
+  line-height: 34px;
   cursor: pointer;
   &-content{
     display: flex;
     align-items: center;
     width: 100%;
-  }
-  .tag-icon {
-    margin-right: 6px;
-    font-size: 20px;
   }
   .tag-name {
     font-family: @defaultFontFamily;

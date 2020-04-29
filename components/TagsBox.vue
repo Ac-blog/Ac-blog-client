@@ -27,11 +27,11 @@ import { ArticleTag } from '@/components'
 
 export default class TagsBox extends Vue {
   private tags: any[] = [
-    { iconType: 'md-eye', tagName: '按钮一', articleNumebr: 100},
-    { iconType: 'md-albums', tagName: '按钮二', articleNumebr: 1000},
-    { iconType: 'md-alert', tagName: '按钮一', articleNumebr: 10},
-    { iconType: 'md-aperture', tagName: '按钮一', articleNumebr: 0},
-    { iconType: 'md-american-football', tagName: '按钮一', articleNumebr: 100},
+    { tagName: '按钮一', articleNumebr: 100},
+    { tagName: '按钮二', articleNumebr: 1000},
+    { tagName: '按钮一', articleNumebr: 10},
+    { tagName: '按钮一', articleNumebr: 0},
+    { tagName: '按钮一', articleNumebr: 100},
   ]
 
   tagClick (): void {
@@ -44,7 +44,7 @@ export default class TagsBox extends Vue {
 @import '~@/styles/var.less';
 .tags-box {
   border: 1px solid @borderColorDeep;
-  width: 380px;
+  width: 320px;
   height: auto;
   box-sizing: border-box;
   &-header {
@@ -56,11 +56,11 @@ export default class TagsBox extends Vue {
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 10px 15px;
     width: 100%;
     height: 100%;
     .tag-container {
-      margin: 5px 20px 5px 0;
+      margin: 5px 15px 5px 0;
       &:nth-last-of-type(1) {
         margin-right: 0;
       }
