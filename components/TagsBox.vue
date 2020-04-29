@@ -1,5 +1,6 @@
 <template>
   <div class="tags-box">
+    <div class="tags-box-header">热门标签</div>
     <ul class="tags-box-content">
       <li class="tag-container" v-for="(item, index) in tags" :key="index">
         <article-tag
@@ -41,16 +42,20 @@ export default class TagsBox extends Vue {
 <style lang="less" scoped>
 @import '~@/styles/var.less';
 .tags-box {
-  padding: 10px;
   border: 1px solid @borderColorDeep;
   width: 380px;
   height: auto;
   box-sizing: border-box;
+  &-header {
+    padding: 10px;
+    border-bottom: 1px solid @borderColorDeep;
+  }
   &-content {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
+    padding: 10px;
     width: 100%;
     height: 100%;
     .tag-container {
