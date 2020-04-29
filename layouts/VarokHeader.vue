@@ -33,6 +33,10 @@
 <style lang="less" scoped>
 @import '~@/styles/var.less';
 .varok-header {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 56px;
   background-color: @darkTheme;
@@ -50,7 +54,7 @@
       /deep/.ivu-btn-text {
         font-size: 26px;
         font-family: @defaultFontFamily!important;
-        color: @lightTheme;
+        color: @white;
       }
     }
     .menu-list {
