@@ -50,6 +50,9 @@ export default class TagsBox extends Vue {
   &-header {
     padding: 10px;
     border-bottom: 1px solid @borderColorDeep;
+    font-size: 14px;
+    font-family: @defaultFontFamily;
+    color: @white;
   }
   &-content {
     display: flex;

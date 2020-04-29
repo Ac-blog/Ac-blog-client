@@ -45,6 +45,7 @@ export default class ArticleTag extends Vue {
   }
   .tag-name {
     font-family: @defaultFontFamily;
+    color: @white;
   }
 }
 </style>
