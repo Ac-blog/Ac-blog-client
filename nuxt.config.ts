@@ -29,7 +29,8 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'iview/dist/styles/iview.css'
+    'iview/dist/styles/iview.css',
+    '@/styles/index.less'
   ],
   /*
   ** Plugins to load before mounting the App
