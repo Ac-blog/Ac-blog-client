@@ -2,7 +2,7 @@
   <div class="article-tag" v-if="tagName" @click="handleClick">
     <div class="article-tag-content">
       <Icon v-if="iconType" class="tag-icon" :type="iconType" />
-      <span class="tag-name">{{ tagName }}</span>
+      <span class="tag-name">{{ tagName }} <strong>[{{ articleNumebr }}]</strong> </span>
     </div>
   </div>
 </template>
@@ -19,6 +19,12 @@ export default class ArticleTag extends Vue {
 
   @Prop(String)
   private tagName!: string
+
+  @Prop({
+    type: Number,
+    default: 0
+  })
+  private articleNumebr!: number
 
   @Emit()
   handleClick() {}
@@ -42,7 +48,7 @@ export default class ArticleTag extends Vue {
     width: 100%;
   }
   .tag-icon {
-    margin-right: 8px;
+    margin-right: 6px;
     font-size: 20px;
   }
   .tag-name {

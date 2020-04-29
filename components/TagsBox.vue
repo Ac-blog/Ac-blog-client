@@ -6,6 +6,7 @@
         <article-tag
           :icon-type="item.iconType"
           :tag-name="item.tagName"
+          :article-numebr="item.articleNumebr"
           @handle-click="tagClick"
         />
       </li>
@@ -26,11 +27,11 @@ import { ArticleTag } from '@/components'
 
 export default class TagsBox extends Vue {
   private tags: any[] = [
-    { iconType: 'md-eye', tagName: '按钮一'},
-    { iconType: 'md-albums', tagName: '按钮二'},
-    { iconType: 'md-alert', tagName: '按钮一'},
-    { iconType: 'md-aperture', tagName: '按钮一'},
-    { iconType: 'md-american-football', tagName: '按钮一'},
+    { iconType: 'md-eye', tagName: '按钮一', articleNumebr: 100},
+    { iconType: 'md-albums', tagName: '按钮二', articleNumebr: 1000},
+    { iconType: 'md-alert', tagName: '按钮一', articleNumebr: 10},
+    { iconType: 'md-aperture', tagName: '按钮一', articleNumebr: 0},
+    { iconType: 'md-american-football', tagName: '按钮一', articleNumebr: 100},
   ]
 
   tagClick (): void {
