@@ -6,10 +6,13 @@ import ArticleTag from './ArticleTag.vue'
 import TagsBox from './TagsBox.vue'
 /** 个人信息 */
 import UserProfile from './UserProfile.vue'
+/** 登录与注册 */
+import LoginAndRegister from './LoginAndRegister.vue'
 
 export {
   ArticleCard,
   ArticleTag,
   TagsBox,
-  UserProfile
+  UserProfile,
+  LoginAndRegister
 }

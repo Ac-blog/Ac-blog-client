@@ -37,10 +37,13 @@ export default class ArticleCard extends Vue {
   width: 660px;
   height: auto;
   box-shadow: @lightBoxShadow;
+  background-color: @black_middle;
   cursor: pointer;
   .preview {
+    border-radius: 8px 8px 0 0;
     width: 100%;
     height: calc(660px * (10 / 21));
+    background-color: @white;
     img {
       width: 100%;
       max-height: 100%;
@@ -48,28 +51,30 @@ export default class ArticleCard extends Vue {
   }
   .article-content {
     .article-title {
-      padding: 15px;
+      padding: 20px;
       line-height: 32px;
       font-size: 24px;
+      color: @white;
     }
     .publish-date {
       margin-top: -12px;
-      padding: 0 15px;
+      padding: 0 20px;
       line-height: 22px;
       font-size: 14px;
+      color: @white_high;
     }
     .description {
-      padding: 10px 15px;
+      padding: 20px;
       line-height: 22px;
       font-size: 14px;
-      color: @black_high;
+      color: @white;
     }
   }
   .article-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
+    padding: 10px 20px 20px;
     .bar-left {
       .start-read-link {
         font-size: 14px;
@@ -81,16 +86,18 @@ export default class ArticleCard extends Vue {
       .article-data {
         display: flex;
         align-items: center;
-        margin-right: 20px;
+        margin-right: 30px;
         line-height: 22px;
         font-size: 12px;
-        color: @black_half;
+        color: @white;
         &:nth-last-of-type(1) {
           margin-right: 0;
         }
       }
       /deep/.ivu-icon {
         margin-right: 3px;
+        font-size: 12px;
+        color: @white;
         &.ivu-icon-md-eye {
           font-size: 24px;
         }

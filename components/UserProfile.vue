@@ -62,11 +62,11 @@ export default class UserProfile extends Vue {
 .user-profile {
   padding: 30px 0 30px 30px;
   border: 1px solid @borderColorDeep;
-  width: 380px;
+  width: 320px;
   height: auto;
   &--avatar {
-    width: 120px;
-    height: 120px;
+    width: 160px;
+    height: 160px;
     overflow: hidden;
     img {
       width: 100%;
@@ -75,28 +75,32 @@ export default class UserProfile extends Vue {
   }
   &--base {
     margin-top: 20px;
-    color: @black_high;
+    color: @white;
+    font-size: 14px;
     font-family: @defaultFontFamily;
   }
   &--msg {
     margin-top: 20px;
+    font-size: 14px;
+    color: @white_high;
     font-family: @defaultFontFamily;
     p {
       display: flex;
       align-items: center;
-      line-height: 22px;
+      line-height: 28px;
       /deep/.ivu-icon {
-        margin-right: 5px;
-        font-size: 14px;
+        margin-right: 6px;
+        font-size: 16px;
       }
     }
     .user-social {
       display: flex;
+      margin-top: 10px;
       font-size: 24px;
-      color: @darkTheme;
+      color: @white;
       cursor: pointer;
       .social-item {
-        margin-right: 10px;
+        margin-right: 20px;
         &:nth-last-of-type(1) {
           margin-right: 0;
         }
