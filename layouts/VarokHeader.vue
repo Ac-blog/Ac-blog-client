@@ -16,18 +16,24 @@
         <Button class="login-btn" type="primary">登录</Button>
       </div>
     </div>
+    <!-- 登录与注册 -->
+    <loginAndRegister />
   </div>
 </template>
 
 <script lang="ts">
-  import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
+import { LoginAndRegister } from '@/components'
 
-  @Component({
-    name: 'VarokHeader',
-  })
-  export default class VarokHeader extends Vue {
-
+@Component({
+  name: 'VarokHeader',
+  components: {
+    LoginAndRegister
   }
+})
+export default class VarokHeader extends Vue {
+
+}
 </script>
 
 <style lang="less" scoped>
