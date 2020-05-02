@@ -12,19 +12,19 @@
         <h3 class="line-bottom">请正确填写以下信息进行登录</h3>
       </div>
       <div class="modal-formdata">
-        <Form ref="formdata" :v-model="formItem" :rules="ruleValidate" :label-width="50" label-position="left">
+        <Form ref="formdata" :model="varokFormdata" :rules="ruleValidate" :label-width="50" label-position="left">
           <FormItem label="邮箱" prop="email">
-            <Input v-model="formItem.email" placeholder="请输入邮箱地址"></Input>
+            <Input v-model="varokFormdata.email" placeholder="请输入邮箱地址"></Input>
           </FormItem>
           <FormItem label="密码" prop="password">
-            <Input v-model="formItem.password" placeholder="请输入密码"></Input>
+            <Input v-model="varokFormdata.password" placeholder="请输入密码"></Input>
           </FormItem>
           <template v-if="status === 1">
             <FormItem label="昵称" prop="nickname">
-              <Input v-model="formItem.nickname" placeholder="请输入昵称"></Input>
+              <Input v-model="varokFormdata.nickname" placeholder="请输入昵称"></Input>
             </FormItem>
             <FormItem class="image-radio-item" label="头像" prop="avatar">
-              <RadioGroup v-model="formItem.avatar">
+              <RadioGroup v-model="varokFormdata.avatar">
                   <Radio label="male">
                     <img src="https://img1.dxycdn.com/2020/0430/149/3410754632845680955-2.jpg" alt="">
                   </Radio>
@@ -65,7 +65,7 @@ export default class LoginAndRegister extends Vue {
   private status: number = 0
 
   // 注册表单对象
-  private formItem: FormItem = {
+  private varokFormdata: FormItem = {
     email: '',
     password: '',
     nickname: '',
@@ -97,7 +97,15 @@ export default class LoginAndRegister extends Vue {
   }
 
   // 保存表单
-  handleNextClick (): void {}
+  handleNextClick (): void {
+    const ref = this.$refs.formdata as HTMLFormElement
+    ref.validate((valid: boolean) => {
+      if (valid) {
+        this.$Message.success(this.status === 0 ? '登录成功' : '注册成功');
+        ref.resetFields()
+      }
+    })
+  }
 }
 </script>
 
