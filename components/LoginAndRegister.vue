@@ -101,6 +101,7 @@ export default class LoginAndRegister extends Vue {
     const ref = this.$refs.formdata as HTMLFormElement
     ref.validate((valid: boolean) => {
       if (valid) {
+        // 提交 API
         this.$Message.success(this.status === 0 ? '登录成功' : '注册成功');
         ref.resetFields()
       }
