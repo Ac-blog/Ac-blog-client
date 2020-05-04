@@ -12,12 +12,11 @@
         <a href="http://">友邻</a>
       </div>
       <div class="header-right-content">
-        <Button class="setting-btn" type="primary" shape="circle" icon="md-settings"></Button>
-        <Button class="login-btn" type="primary">登录</Button>
+        <Button class="login-btn" type="primary" @click="handleLoginEvent">登录</Button>
       </div>
     </div>
     <!-- 登录与注册 -->
-    <loginAndRegister />
+    <loginAndRegister v-if="LoginAndRegisterVisible" @close="LoginAndRegisterVisible = false"/>
   </div>
 </template>
 
@@ -32,7 +31,13 @@ import { LoginAndRegister } from '@/components'
   }
 })
 export default class VarokHeader extends Vue {
+  // 登录注册弹出框显示、隐藏
+  private LoginAndRegisterVisible: boolean = false
 
+  // methods
+  handleLoginEvent (): void {
+    this.LoginAndRegisterVisible = true
+  }
 }
 </script>
 

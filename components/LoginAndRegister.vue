@@ -2,7 +2,7 @@
   <div class="login-and-register">
     <div class="modal-content">
       <div class="modal-header">
-        <Icon type="md-arrow-back" />
+        <Icon type="md-arrow-back" @click="handleCloseEvent"/>
       </div>
       <div class="modal-middle">
         <h2 class="line-top">
@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
 
 interface FormItem {
   email: string,
@@ -57,6 +57,12 @@ interface FormItem {
   name: 'LoginAndRegister'
 })
 export default class LoginAndRegister extends Vue {
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  private LoginAndRegisterVisible!: boolean
+
   /**
    * 登录注册框状态
    * 登录框：status = 0 默认
@@ -91,6 +97,12 @@ export default class LoginAndRegister extends Vue {
   }
 
   // methods
+  // 关闭弹出框
+  @Emit('close')
+  handleCloseEvent () {
+    return true
+  }
+
   // 切换状态
   switchStatus (): void {
     this.status = this.status === 0 ? 1 : 0
@@ -131,7 +143,7 @@ export default class LoginAndRegister extends Vue {
     background-color: @black_middle;
     .modal-header {
       padding: 10px 30px 0;
-      height: 48px;
+      height: 58px;
       line-height: 48px;
       /deep/.ivu-icon {
         font-size: 28px;
