@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.5",
+    "@nuxtjs/axios": "^5.10.3",
+    "axios": "^0.19.2",
     "cross-env": "^5.2.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
