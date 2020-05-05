@@ -4,27 +4,35 @@
       <img src="https://img1.dxycdn.com/2020/0424/279/3409583174073156398-2.png" alt="">
     </div>
     <div class="article-content">
-      <h2 class="article-title">天眼陌路</h2>
-      <p class="publish-date">2020 年 11 月 31 日</p>
-      <div class="description">说不出怎般心绪，大概是突然卸下了一切负担的反向压抑。烟圈于眼前扭曲。相背酸涩地分割，时间平衡中空间分离。     此夏终结，再也不会。     天蒙蒙，看不清前方的瞬间，立刻被过往霸占...</div>
+      <h2 class="article-title">{{ cardMsg.title }}</h2>
+      <p class="publish-date">{{ cardMsg.updated }}</p>
+      <div class="description">{{ cardMsg.body }}</div>
     </div>
     <div class="article-bar">
       <div class="bar-left">
         <a class="start-read-link" href="">开始阅读</a>
       </div>
       <div class="bar-right">
-        <p class="article-data"><Icon type="md-eye" /> <span>100</span></p>
-        <p class="article-data"><Icon type="md-chatboxes" /> <span>100</span></p>
-        <p class="article-data"><Icon type="md-heart" /> <span>100</span></p>
+        <p class="article-data"><Icon type="md-eye" /> <span>{{ cardMsg.readNumber }}</span></p>
+        <p class="article-data"><Icon type="md-chatboxes" /> <span>{{ cardMsg.comments }}</span></p>
+        <p class="article-data"><Icon type="md-heart" /> <span>{{ cardMsg.like }}</span></p>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
+@Component({
+  name: 'ArticleCard'
+})
 export default class ArticleCard extends Vue {
+  @Prop({
+    type: Object,
+    default: () => {}
+  })
+  private cardMsg!: any
 }
 </script>
 
@@ -32,6 +40,7 @@ export default class ArticleCard extends Vue {
 @import '~@/styles/var.less';
 .article-card {
   position: relative;
+  margin-top: 35px;
   border: 1px solid @borderColor;
   border-radius: 8px;
   width: 660px;
@@ -39,6 +48,9 @@ export default class ArticleCard extends Vue {
   box-shadow: @lightBoxShadow;
   background-color: @black_middle;
   cursor: pointer;
+  &:nth-of-type(1) {
+    margin-top: 0;
+  }
   .preview {
     border-radius: 8px 8px 0 0;
     width: 100%;
