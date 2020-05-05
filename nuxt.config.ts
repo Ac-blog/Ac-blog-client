@@ -36,7 +36,9 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/iview'
+    '@/plugins/iview',
+    '@/plugins/axios',
+    '@/plugins/filters'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -51,7 +53,15 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: [],
+  modules: [
+    '@nuxtjs/axios'
+  ],
+  /**
+   * Axios
+  */
+ axios: {
+
+ },
   /*
   ** Build configuration
   */
@@ -86,6 +96,10 @@ module.exports = {
       eslint: true
     }
   },
+  server: {
+    port: 8081, // default: 3000
+    host: 'localhost' // default: localhost,
+  }
 }
 
 
