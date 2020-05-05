@@ -6,7 +6,7 @@
     <div class="article-content">
       <h2 class="article-title">{{ cardMsg.title }}</h2>
       <p class="publish-date">{{ cardMsg.updated }}</p>
-      <div class="description">{{ cardMsg.body }}</div>
+      <div class="description">{{ cardMsg.body | filterHTMLTag }}</div>
     </div>
     <div class="article-bar">
       <div class="bar-left">
@@ -14,7 +14,7 @@
       </div>
       <div class="bar-right">
         <p class="article-data"><Icon type="md-eye" /> <span>{{ cardMsg.readNumber }}</span></p>
-        <p class="article-data"><Icon type="md-chatboxes" /> <span>{{ cardMsg.comments }}</span></p>
+        <p class="article-data"><Icon type="md-chatboxes" /> <span>{{ cardMsg.comments.length }}</span></p>
         <p class="article-data"><Icon type="md-heart" /> <span>{{ cardMsg.like }}</span></p>
       </div>
     </div>
