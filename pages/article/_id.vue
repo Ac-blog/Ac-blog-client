@@ -20,7 +20,7 @@ export default class ArticleDetail extends Vue {
   @Watch('$route', {
     immediate: true,
   })
-  private routeChange (to: Route, from: Route) {
+  private routeChange (to: any, from: any) {
     this.fetchArticleDetail(to.params.id)
   }
 
@@ -29,8 +29,8 @@ export default class ArticleDetail extends Vue {
    * 获取文章详情页内容
    * @param {string} articleId - 文章 id
   */
-  async fetchArticleDetail (articleId) {
-    const res = await getArticleDetail({
+  async fetchArticleDetail (articleId: string) {
+    const res: any = await getArticleDetail({
       articleId
     })
     this.articleDetailMsg = res.results
