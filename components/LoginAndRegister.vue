@@ -2,7 +2,7 @@
   <div class="login-and-register">
     <div class="modal-content">
       <div class="modal-header">
-        <Icon type="md-arrow-back" />
+        <Icon type="md-arrow-back" @click="handleCloseEvent"/>
       </div>
       <div class="modal-middle">
         <h2 class="line-top">
@@ -12,19 +12,19 @@
         <h3 class="line-bottom">请正确填写以下信息进行登录</h3>
       </div>
       <div class="modal-formdata">
-        <Form ref="formdata" :v-model="formItem" :rules="ruleValidate" :label-width="50" label-position="left">
+        <Form ref="formdata" :model="varokFormdata" :rules="ruleValidate" :label-width="50" label-position="left">
           <FormItem label="邮箱" prop="email">
-            <Input v-model="formItem.email" placeholder="请输入邮箱地址"></Input>
+            <Input v-model="varokFormdata.email" placeholder="请输入邮箱地址"></Input>
           </FormItem>
           <FormItem label="密码" prop="password">
-            <Input v-model="formItem.password" placeholder="请输入密码"></Input>
+            <Input v-model="varokFormdata.password" placeholder="请输入密码"></Input>
           </FormItem>
           <template v-if="status === 1">
             <FormItem label="昵称" prop="nickname">
-              <Input v-model="formItem.nickname" placeholder="请输入昵称"></Input>
+              <Input v-model="varokFormdata.nickname" placeholder="请输入昵称"></Input>
             </FormItem>
             <FormItem class="image-radio-item" label="头像" prop="avatar">
-              <RadioGroup v-model="formItem.avatar">
+              <RadioGroup v-model="varokFormdata.avatar">
                   <Radio label="male">
                     <img src="https://img1.dxycdn.com/2020/0430/149/3410754632845680955-2.jpg" alt="">
                   </Radio>
@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
 
 interface FormItem {
   email: string,
@@ -57,6 +57,12 @@ interface FormItem {
   name: 'LoginAndRegister'
 })
 export default class LoginAndRegister extends Vue {
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  private LoginAndRegisterVisible!: boolean
+
   /**
    * 登录注册框状态
    * 登录框：status = 0 默认
@@ -65,7 +71,7 @@ export default class LoginAndRegister extends Vue {
   private status: number = 0
 
   // 注册表单对象
-  private formItem: FormItem = {
+  private varokFormdata: FormItem = {
     email: '',
     password: '',
     nickname: '',
@@ -91,13 +97,28 @@ export default class LoginAndRegister extends Vue {
   }
 
   // methods
+  // 关闭弹出框
+  @Emit('close')
+  handleCloseEvent () {
+    return true
+  }
+
   // 切换状态
   switchStatus (): void {
     this.status = this.status === 0 ? 1 : 0
   }
 
   // 保存表单
-  handleNextClick (): void {}
+  handleNextClick (): void {
+    const ref = this.$refs.formdata as HTMLFormElement
+    ref.validate((valid: boolean) => {
+      if (valid) {
+        // 提交 API
+        this.$Message.success(this.status === 0 ? '登录成功' : '注册成功');
+        ref.resetFields()
+      }
+    })
+  }
 }
 </script>
 
@@ -122,7 +143,7 @@ export default class LoginAndRegister extends Vue {
     background-color: @black_middle;
     .modal-header {
       padding: 10px 30px 0;
-      height: 48px;
+      height: 58px;
       line-height: 48px;
       /deep/.ivu-icon {
         font-size: 28px;
