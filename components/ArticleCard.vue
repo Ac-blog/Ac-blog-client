@@ -10,7 +10,7 @@
     </div>
     <div class="article-bar">
       <div class="bar-left">
-        <a class="start-read-link" href="">开始阅读</a>
+        <router-link class="start-read-link" :to="`/article/${cardMsg._id}`">开始阅读</router-link>
       </div>
       <div class="bar-right">
         <p class="article-data"><Icon type="md-eye" /> <span>{{ cardMsg.readNumber }}</span></p>

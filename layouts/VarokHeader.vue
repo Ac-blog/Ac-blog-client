@@ -2,9 +2,9 @@
   <div class="varok-header">
     <div class="varok-header-content">
       <div class="header-title">
-        <a href="http://">
-          <Button type="text">VAROK</Button>
-        </a>
+        <router-link to="/">
+          <span>VAROK</span>
+        </router-link>
       </div>
       <div class="menu-list">
         <a href="http://">首页</a>
@@ -59,10 +59,12 @@ export default class VarokHeader extends Vue {
     width: 100%;
     height: 100%;
     .header-title {
+      display: flex;
+      align-items: center;
       a {
         display: block;
       }
-      /deep/.ivu-btn-text {
+      span {
         font-size: 26px;
         font-family: @defaultFontFamily!important;
         color: @white;
