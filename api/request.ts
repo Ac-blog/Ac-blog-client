@@ -2,7 +2,7 @@
  * 封装Axios
  * 处理请求、响应错误信息
  */
-import { Message } from 'iView'
+// import { Message } from 'iView'
 import axios from 'axios' //引用axios
 // create an axios instance
 const service = axios.create({
