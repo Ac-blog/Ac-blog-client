@@ -3,7 +3,7 @@
     <div class="varok-header-content">
       <div class="header-title">
         <router-link to="/">
-          <span>VAROK</span>
+          <span>VAROKS</span>
         </router-link>
       </div>
       <div class="menu-list">
